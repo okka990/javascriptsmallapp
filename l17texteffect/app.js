@@ -3,6 +3,7 @@
 const languages = ["Nodejs","Reactjs","Vuejs","Laravel"];
 const colors = ["red","skyblue","violet","yellow"];
 const gettxtani = document.querySelector(".textani");
+const gettxtlights = document.querySelectorAll('.text-light')
 
 // console.log(languages);
 // console.log(colors);
@@ -65,6 +66,7 @@ function showwords(word){
 
 		if(x >= word.length){
 			clearInterval(showinterval);
+			deletewords();
 		}else{
 			gettxtani.innerHTML += word[x];
 			x++;
@@ -76,8 +78,71 @@ function showwords(word){
 	// gettxtani.innerHTML = word;
 
 }
+
+function deletewords(){
+
+	let getword = gettxtani.innerHTML;
+	// console.log(getword);
+
+	let getlastidx = getword.length-1;
+	// console.log(getlastidx); //5
+
+	//n
+
+
+	let delinterval = setInterval(function(){
+
+		if(getlastidx >=0){
+			gettxtani.innerHTML = gettxtani.innerHTML.substring(0,gettxtani.innerHTML.length-1);
+			// getword = getword.substring(0,getlastidx);
+			
+			getlastidx--;
+
+		}else{
+
+			//remove old color
+			gettxtani.classList.remove(colors[languages.indexOf(getword)]);
+		
+			//get new language
+			showwords(languages[genfun.next().value]);
+
+			clearInterval(delinterval);
+		}
+
+	},500);
+
+	
+}
+// deletewords();
 showwords(languages[genfun.next().value]);
 // showwords(languages[3]);
+
+gettxtlights.forEach(function(gettxtlight){
+	// console.error(gettxtlight);
+	// console.warn(gettxtlights);
+
+
+	let arrtexts = gettxtlight.textContent.split('');
+	// console.log(arrtexts);
+
+	gettxtlight.textContent="";
+
+
+	arrtexts.forEach(function(arrtext,idx){
+		// console.log(arrtext);
+		// console.log(idx);
+
+
+		let newem = document.createElement('em');
+
+		newem.textContent = arrtext;
+
+		newem.style.animationDelay = `${idx * 0.5}s`;
+
+		gettxtlight.append(newem);
+
+	})
+})
 
 
 // 15WD

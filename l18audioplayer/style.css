@@ -1,0 +1,86 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-family:sans-serif ;
+	height: 100vh;
+	background: #444;
+
+	color: #fff;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container{
+
+	width: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	flex-direction: column;
+
+}
+
+.controls{
+	width: 100%;
+	background: #222;
+	color: #fff;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding:12px 0 ;
+} 
+
+.ctrl-btn{
+
+	background-color: transparent;
+	color: #fff;
+
+	border: 0;
+	outline: none;
+	cursor: pointer;
+
+	margin: 0 5px;
+
+}
+
+.progress{
+	width: 70%;
+	height: 4px;
+
+	background-color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+
+
+}
+
+.progress-bar{
+	width: 0%;
+	height: inherit;
+	background: steelblue;
+}
+
+.volumeprogress{
+	margin: 0 5px;
+}
+
+#play{
+	color: steelblue;
+}
+
+#stop{
+	color: tomato;
+}
+
+.displaytime{
+	padding-right: 10px;
+}
+/*22AD*/
